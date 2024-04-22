@@ -5,6 +5,9 @@ import { Produto } from "../entities/produto.entity";
 
 @Injectable()
 export class ProdutoService {
+    findByPrice(preco: number): Promise<Produto[]> {
+      throw new Error("Method not implemented.");
+    }
     
     constructor(
         @InjectRepository(Produto)
@@ -100,3 +103,4 @@ export class ProdutoService {
     }
 
 }
+
