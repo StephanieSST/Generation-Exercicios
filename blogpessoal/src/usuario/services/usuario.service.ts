@@ -48,6 +48,10 @@ export class UsuarioService {
         let buscaUsuario = await this.findByUsuario(usuario.usuario);
 
         if (!buscaUsuario) {
+
+            if (!usuario.foto)
+                usuario.foto = 'https://ik.imagekit.io/sst10/default.png?updatedAt=1714054239277' 
+
             usuario.senha = await this.bcrypt.criptografarSenha(usuario.senha)
             return await this.usuarioRepository.save(usuario);
         }
