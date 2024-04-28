@@ -70,6 +70,9 @@ export class UsuarioService {
         if(buscaUsuario && buscaUsuario.id !== usuario.id)
             throw new HttpException('Usuário (e-mail) já cadastrado!', HttpStatus.BAD_REQUEST);
 
+        if(!usuario.foto)
+            usuario.foto = 'https://ik.imagekit.io/sst10/default.png?updatedAt=17140542392770';
+
         usuario.senha = await this.bcrypt.criptografarSenha(usuario.senha)
         return await this.usuarioRepository.save(usuario);
     }
