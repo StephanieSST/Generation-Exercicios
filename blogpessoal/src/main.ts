@@ -9,7 +9,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
   .setTitle('Blog Pessoal')
   .setDescription('Projeto Blog Pessoal')
-  .setContact("Stephanie Steuernagel Tavares","http://www.generationbrasil.online","generation@email.com")
+  .setContact("Stephanie Steuernagel Tavares","https://github.com/StephanieSST","stephaniesteuernagel@gmail.com")
   .setVersion('1.0')
   .addBearerAuth()
   .build();
@@ -20,6 +20,6 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();
-  await app.listen(4000);
+  await app.listen(process.env.PORT || 4000);;
 }
 bootstrap();
